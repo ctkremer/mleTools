@@ -1,6 +1,14 @@
 
 #----------------------------------------------------------------#
 #----------------------------------------------------------------#
+#
+#	 To do:
+#		- improved passing of control parameters, etc to mle2 and optim (see functions match.call() and use of call in mle2 code.)
+#		- clean up structure of function output
+#   - output format is still a bit messy - learn more about nested lists.
+#
+#----------------------------------------------------------------#
+#----------------------------------------------------------------#
 
 
 #'	Maximum likelihood model fitting using a grid of starting guesses
@@ -8,7 +16,9 @@
 #'	Designed to perform mle2 fits for a grid of initial parameter
 #'	guesses, to aid situations where good starting values are either
 #'	difficult to obtain, or when a large number of fits need to be
-#'	conducted in an automated fasion.
+#'	conducted in an automated fasion. A large number of fits are 
+#'	performed; from the sbuset of resulting models that successfully
+#'	converge, the best model is selecte based on AIC comparison.
 #'	
 #'	This function is essentially a wrapper for mle2() from 
 #'	Ben Bolker's bbmle package.
@@ -115,30 +125,3 @@ convergeQ<-function(x){
   if(class(x)!="mle2"){print("warning! convergeQ() not supported for non mle2 classes")}
   x@details$convergence
 }
-
-
-
-#
-#	Change log:
-#		- added new function convergeQ to save convergence status of models examined by grid.mle2
-#		- output of grid.mle2 expanded to include a field holding the best model
-#			- selected based on convergence, then subsequently the best AIC value
-#		- control(parscale) not always helpful (was preventing convergence in some situations 
-#     while aiding it in others). Currently turned off until function can handle passing 
-#     'control' options to mle2 and optim.
-#
-#	To implement:
-#		- improved passing of control parameters, etc to mle2 and optim
-#		- clean up structure of function output
-#
-####################################
-
-############# To fix:
-#
-# - output format is still a bit messy - learn more about nested lists.
-# - passing control parameters to optim
-#		- see functions match.call() and use of call in mle2 code.
-#		- for now, handled in a crude way by forcing all models to use control 
-#		  pars for parscale, hardwired into the code.
-#
-################
