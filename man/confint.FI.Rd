@@ -10,10 +10,10 @@
 \item{model}{An mle2 model fit}
 }
 \value{
-A 95% confidence interval
+A 95 percent confidence interval
 }
 \description{
-Calculate 95% confidence intervals for model parameters, based
+Calculate 95 percent confidence intervals for model parameters, based
 on Fisher Information.
 }
 

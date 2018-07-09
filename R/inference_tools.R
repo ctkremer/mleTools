@@ -18,12 +18,12 @@
 
 #' Fisher information confidence intervals
 #'
-#' Calculate 95% confidence intervals for model parameters, based
+#' Calculate 95 percent confidence intervals for model parameters, based
 #' on Fisher Information.
 #'
 #' @param model An mle2 model fit
 #' 
-#' @return A 95% confidence interval
+#' @return A 95 percent confidence interval
 #' 
 #' @export
 confint.FI<-function(model){
