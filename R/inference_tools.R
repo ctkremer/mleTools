@@ -26,7 +26,7 @@
 #' @return A 95 percent confidence interval
 #' 
 #' @export
-confint.FI<-function(model){
+ci.FI<-function(model){
   cfs<-coef(model)
   ses<-sqrt(diag(vcov(model)))	# standard errors
   lw<-cfs-1.96*ses
