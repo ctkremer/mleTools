@@ -11,9 +11,15 @@ precision parameterization given in Ramalho et al. 2009}
 dzabeta(x, z, mu, phi, log = FALSE)
 }
 \arguments{
-\item{x}{}
+\item{x}{Observed value}
 
-\item{log}{}
+\item{z}{Zero inflation parameter (0,1)}
+
+\item{mu}{Mean of beta distribution}
+
+\item{phi}{Precision parameter}
+
+\item{log}{Return raw or logged probability density values?}
 }
 \description{
 Zero-altered beta distribution

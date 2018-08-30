@@ -45,11 +45,11 @@ dgamma2<-function(x,mu,s,log=F){
 #' errors in dbeta, and can handle log values.  Follows mean and
 #' precision parameterization given in Ramalho et al. 2009
 #' 
-#' @param x 
-#' @param z
-#' @param mu
-#' @param phi
-#' @param log
+#' @param x Observed value
+#' @param z Zero inflation parameter (0,1)
+#' @param mu Mean of beta distribution
+#' @param phi Precision parameter
+#' @param log Return raw or logged probability density values?
 #' 
 #' @export
 dzabeta<-function(x,z,mu,phi,log=FALSE){
