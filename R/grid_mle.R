@@ -38,7 +38,7 @@
 #' @import bbmle
 grid.mle2<-function(minuslogl,grids,start,data,...){
   
-  #	print(list(...))
+  #print(list(...))
   
   if(length(grids)>=1){	# if grids have been supplied,
     
@@ -59,11 +59,9 @@ grid.mle2<-function(minuslogl,grids,start,data,...){
       pscale<-as.numeric(new.start)
       names(pscale)<-names(new.start)
       
-      #			res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,data=data),silent=T)
-      
+      #res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,data=data),silent=F)
+      #res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,control=list(parscale=pscale),method="BFGS",data=data,...),silent=T)	
       res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,data=data,...),silent=T)
-      
-      #			res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,control=list(parscale=pscale),method="BFGS",data=data,...),silent=T)	
       
       if(class(res.fit)=="try-error"){
         # then fit failed; return NA values plus error message.
@@ -102,7 +100,7 @@ grid.mle2<-function(minuslogl,grids,start,data,...){
   res.mat$AIC<-as.numeric(res.mat$AIC)
   listAIC<-res.mat$AIC[res.mat$convergence==0]
   if(length(listAIC)==0){
-    print("warning! Unable to select best model")
+    print("warning! Unable to select best model - no models converged")
     res<-list(res.mat=res.mat,res.mod=as.list(res.mod),res.best=NA)
   }else{
     minAIC<-min(listAIC)
