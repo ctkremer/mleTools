@@ -26,16 +26,31 @@ dbeta2<-function(x,mu,phi,log=FALSE){
 #' @param mu The mean of the gamma distribution
 #' @param s Dispersion parameter 
 #' @param log logical; return the ln of the probability density?
+#' @param n number of random values to generate (for rgamma2)
 #'
 #' @export
 dgamma2<-function(x,mu,s,log=F){
-  dgamma(x,shape=gamma.shape(mu,s),
-         scale=gamma.scale(mu,s),log=log)
+  dgamma(x,shape=gamma_shape(mu,s),
+         scale=gamma_scale(mu,s),log=log)
 }
 
-# conversion functions for gamma reparameterization
-#gamma.shape<-function(mu,s) (mu^2)/s
-#gamma.scale<-function(mu,s) s/mu
+#' @describeIn dgamma2 Generate random values from re-parameterized gamma
+#' @export
+rgamma2<-function(n,mu,s){
+  rgamma(n,shape=gamma_shape(mu,s),scale = gamma_scale(mu,s))
+}
+
+#' @describeIn dgamma2 Calculate gamma shape parameter from mu, s
+#' @export
+gamma_shape<-function(mu,s){
+  (mu^2)/s
+}
+
+#' @describeIn dgamma2 Calculate gamma scale parameter from mu, s
+#' @export
+gamma_scale<-function(mu,s){
+  s/mu 
+}
 
 #### Mixture distributions: ####
 
