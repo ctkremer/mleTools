@@ -38,4 +38,3 @@ Ben Bolker's bbmle package.
 See examples in grid.mle2_wexamples.R
 
 }
-

@@ -18,4 +18,3 @@ Generalized R2 value
 Comparisons across models invoking different error distributions
 is not recommended at present.
 }
-

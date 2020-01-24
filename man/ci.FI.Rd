@@ -16,4 +16,3 @@ A 95 percent confidence interval
 Calculate 95 percent confidence intervals for model parameters, based
 on Fisher Information.
 }
-

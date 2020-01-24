@@ -28,4 +28,3 @@ Code for vectorized zero altered beta distribution that avoids
 errors in dbeta, and can handle log values.  Follows mean and
 precision parameterization given in Ramalho et al. 2009
 }
-

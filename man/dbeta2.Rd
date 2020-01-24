@@ -18,4 +18,3 @@ dbeta2(x, mu, phi, log = FALSE)
 \description{
 Mean-parameterized beta distribution
 }
-

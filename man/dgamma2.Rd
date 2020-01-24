@@ -2,9 +2,9 @@
 % Please edit documentation in R/custom_distributions_and_links.R
 \name{dgamma2}
 \alias{dgamma2}
-\alias{gamma_scale}
-\alias{gamma_shape}
 \alias{rgamma2}
+\alias{gamma_shape}
+\alias{gamma_scale}
 \title{Mean-parameterized gamma distribution}
 \usage{
 dgamma2(x, mu, s, log = F)

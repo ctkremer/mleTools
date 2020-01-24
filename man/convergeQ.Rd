@@ -15,4 +15,3 @@ The convergence status of the model (1 or 0)
 \description{
 Check whether a particular mle2 model converged during fitting
 }
-
