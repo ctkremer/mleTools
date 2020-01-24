@@ -35,7 +35,6 @@
 #' @examples See examples in grid.mle2_wexamples.R
 #'
 #' @export
-#' @import bbmle
 grid.mle2<-function(minuslogl,grids,start,data,...){
   
   #print(list(...))
@@ -61,14 +60,14 @@ grid.mle2<-function(minuslogl,grids,start,data,...){
       
       #res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,data=data),silent=F)
       #res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,control=list(parscale=pscale),method="BFGS",data=data,...),silent=T)	
-      res.fit<-try(mle2(minuslogl=minuslogl,start=new.start,data=data,...),silent=T)
+      res.fit<-try(bbmle::mle2(minuslogl=minuslogl,start=new.start,data=data,...),silent=T)
       
       if(class(res.fit)=="try-error"){
         # then fit failed; return NA values plus error message.
         res.mat[i,]<-c(i,unlist(new.start),NA,1,res.fit[1])
         res.mod[[i]]<-res.fit		# not 100% sure this is a good idea				
       }else{
-        res.mat[i,]<-c(i,coef(res.fit),AIC(res.fit),convergeQ(res.fit),"")		
+        res.mat[i,]<-c(i,bbmle::coef(res.fit),stats::AIC(res.fit),convergeQ(res.fit),"")		
         res.mod[[i]]<-res.fit
       }			
     }
