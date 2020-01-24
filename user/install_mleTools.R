@@ -6,8 +6,7 @@ library(devtools)
 remove.packages('mleTools')
 
 # Install the growthTools package!
-devtools::install_github("ctkremer/mleTools",auth_token = '6af60cb683ef4cbab1d6b25e0ec2ed6b925c831b')
+devtools::install_github("ctkremer/mleTools")
 
 # Load package!
 library(mleTools)
-
