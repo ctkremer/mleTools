@@ -27,7 +27,7 @@
 #' 
 #' @export
 ci.FI<-function(model){
-  cfs<-coef(model)
+  cfs<-model@coef
   ses<-sqrt(diag(vcov(model)))	# standard errors
   lw<-cfs-1.96*ses
   up<-cfs+1.96*ses
